@@ -1,7 +1,7 @@
 """
 Hangman
 """
-# start 8.a
+# start
 listOfWords = [
     'APPLE', 'BILBO', 'CHORUSED', 'DISIMAGINE',
     'ENSURING', 'FORMALISING', 'GLITCHES', 'HARMINE',
@@ -13,12 +13,9 @@ listOfWords = [
 
 import random as r
 
-print("Random word is: " + r.choice(listOfWords))
+# end
 
-
-# end 8.a
-
-def inertAtString(index, string, value):
+def inertAtString(index, string, value):    # fuction to insert at specfic index
     l = list(string)
     l[index]= str(value)
     res = ""
@@ -27,10 +24,11 @@ def inertAtString(index, string, value):
     return res
 
 
-# start 8.b
+# start 
 def HangMan(guess_word):
     guessed_letters = []
     count = 0
+    incorrect_counter=6;
     display_word = ""
     print("You have to guess a word which have {0} letters in it.".format(len(guess_word)))
     for i in guess_word:
@@ -45,7 +43,6 @@ def HangMan(guess_word):
             print("You already guessed that!")
             pass
         elif l in guess_word:
-
             for k in range(len(guess_word)):
                 if guess_word[k] == l:
                     display_word = inertAtString(k, display_word, l)
@@ -57,14 +54,18 @@ def HangMan(guess_word):
             guessed_letters.append(l)
         else:
             print("Incorrect!")
+            incorrect_counter-= 1
+            print("You have left {0} incorrect guesses left!. Be careful".format(incorrect_counter))
+            if incorrect_counter==0:
+                print("\nGame is ended:Try Again!")
+                break
 
         if count == len(guess_word):
             is_found = True
+            print("\nYou guessed that word!")
 
-    print("\nYou guessed that word!")
 
-
-is_want=input("Do you want to play again Yes or No: ")
+is_want=input("\nDo you want to play again Yes or No: ")
 Yes=False
 
 if is_want == 'Yes' or is_want == 'yes' or is_want == 'y' or is_want == 'Y':
@@ -76,7 +77,7 @@ while(Yes):
         print("\n>>> Welcome to HangMan!")
         guess_word = r.choice(listOfWords)
         HangMan(guess_word)
-        is_want = input("Do you want to play again Yes or No: ")
+        is_want = input("\nDo you want to play again Yes or No: ")
         if is_want == 'Yes' or is_want == 'yes' or is_want == 'y' or is_want == 'Y':
             Yes = True
         else:
@@ -84,5 +85,4 @@ while(Yes):
 
 
 print("\nGame Ended")
-# start 8.b
 
