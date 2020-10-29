@@ -8,14 +8,15 @@ listOfWords = [
     'INDENTATION', 'JACKED', 'KALPACS', 'LAUNDRY',
     'MASKED', 'NETTED', 'OXFORD', 'PARODY', 'QUOTIENTS',
     'RACERS', 'SADNESS', 'THYREOID', 'UNDUE', 'VENT', 'WEDGED',
-    'XERIC', 'YOUTHHOOD', 'ZIFFS'
+    'XERIC', 'YOUTHHOOD', 'ZIFFS' , 'SCHOOL', 'LAPTOP', 'MOBILE', 'EARTH'
+    'MARS', 'JUPYTER', 'MOON', 'STARS', 'HP', 'ONE', 'LIKE'
 ]
 
 import random as r
 
 # end
 
-def inertAtString(index, string, value):    # fuction to insert at specfic index
+def inertAtString(index, string, value):    # fuction to insert at specfic index for strings variables
     l = list(string)
     l[index]= str(value)
     res = ""
